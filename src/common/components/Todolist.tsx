@@ -1,4 +1,5 @@
-import {TodolistProps} from "common/types/TodolistProps.ts";
+import {TodolistProps} from "common/types/TodolistProps";
+import {Button} from "common/components/Button.tsx";
 
 export const Todolist = (props: TodolistProps) => {
    const mappedTasks = props.tasks.map(task => {
@@ -28,9 +29,9 @@ export const Todolist = (props: TodolistProps) => {
                }
             </ul>
             <div>
-               <button>All</button>
-               <button>Active</button>
-               <button>Completed</button>
+               <Button title= "All " />
+               <Button title= "Active"/>
+               <Button title= "Completed"/>
             </div>
             <div>{props.date}</div>
          </div>
