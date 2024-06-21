@@ -1,33 +1,39 @@
 import {TodolistProps} from "common/types/TodolistProps.ts";
 
 export const Todolist = (props: TodolistProps) => {
+   const mappedTasks = props.tasks.map(task => {
+      return (
+         <li key={task.id}>
+            <input type="checkbox" checked={task.isDone} />
+            <span>{task.title}</span>
+         </li>
+      )
+   })
+
    return (
-      <div>
-         <h3>{props.title}</h3>
+      <>
          <div>
-            <input />
-            <button>+</button>
+            <h3>{props.title}</h3>
+            <div>
+               <input/>
+               <button>+</button>
+            </div>
+            <ul>
+               {
+                  props.tasks.length === 0 ? (
+                        <p>No tasks</p>
+                     )
+                     :
+                     mappedTasks
+               }
+            </ul>
+            <div>
+               <button>All</button>
+               <button>Active</button>
+               <button>Completed</button>
+            </div>
+            <div>{props.date}</div>
          </div>
-         <ul>
-            <li>
-               <input type="checkbox" checked={props.tasks[0].isDone} />
-               <span>{props.tasks[0].title}</span>
-            </li>
-            <li>
-               <input type="checkbox" checked={props.tasks[1].isDone} />
-               <span>{props.tasks[1].title}</span>
-            </li>
-            <li>
-               <input type="checkbox" checked={props.tasks[2].isDone} />
-               <span>{props.tasks[2].title}</span>
-            </li>
-         </ul>
-         <div>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
-         </div>
-         <div>{props.date}</div>
-      </div>
+      </>
    )
 }
