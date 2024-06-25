@@ -1,4 +1,3 @@
-
 import './App.css'
 import {Todolist} from "common/components/Todolist.tsx";
 import {TaskProps} from "common/types/TaskProps";
@@ -12,19 +11,16 @@ function App() {
       {id: 5, title: 'TypeScript', isDone: false},
       {id: 5, title: 'RTK Query', isDone: false},
    ]
-   const tasks2: TaskProps[] = []
+   const tasks2: TaskProps[] = [
+       {id: 1, title: 'CSS', isDone: true},
+   ]
+    const tasks3: TaskProps[] = []
 
    return (
       <div className="App">
-         <Todolist
-            title="What to learn"
-            tasks={tasks1}
-            date={'21.06.2024'}
-         />
-         <Todolist
-            title="Songs"
-            tasks={tasks2}
-         />
+         <Todolist title="What to learn" tasks={tasks1} date={'21.06.2024'} />
+         <Todolist title="Songs" tasks={tasks2} />
+         <Todolist title={"What to do"} tasks={tasks3} />
       </div>
    )
 }
