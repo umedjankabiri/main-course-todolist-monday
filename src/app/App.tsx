@@ -1,6 +1,6 @@
-import './App.css'
+import 'app/App.css'
 import {Todolist} from "common/components/Todolist.tsx";
-import {TaskProps} from "common/types/TaskProps";
+import {TaskProps} from "common/types/TaskProps.ts";
 
 function App() {
    const tasks1: TaskProps[] = [
