@@ -1,4 +1,4 @@
-import 'app/App.css'
+import 'common/components/app/App.css'
 import {Todolist} from "common/components/Todolist.tsx";
 import {TaskProps} from "common/types/TaskProps.ts";
 
