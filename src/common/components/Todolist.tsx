@@ -1,7 +1,8 @@
 import {TodolistProps} from "common/types/TodolistProps";
 import {Button} from "common/components/Button.tsx";
+import {FC} from "react";
 
-export const Todolist = (props: TodolistProps) => {
+export const Todolist: FC<TodolistProps> = (props) => {
    const mappedTasks = props.tasks.map(task => {
       return (
          <li key={task.id}>
