@@ -22,11 +22,7 @@ export const Todolist: FC<TodolistProps> = (props) => {
             </div>
             <ul>
                {
-                  props.tasks.length === 0 ? (
-                        <p>No tasks</p>
-                     )
-                     :
-                     mappedTasks
+                  props.tasks.length === 0 ? <p>No tasks</p> : mappedTasks
                }
             </ul>
             <div>
