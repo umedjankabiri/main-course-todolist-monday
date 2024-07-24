@@ -2,7 +2,7 @@ import 'common/components/App/App.css'
 import {Todolist} from "common/components/Todolist/Todolist.tsx";
 import {TaskProps} from "common/types/tasksProps/TaskProps.ts";
 import {useState} from "react";
-import {FilterValuesProps} from "common/types/todolistProps/FilterValuesProps.ts";
+import {FilterValueProps} from "common/types/todolistProps/FilterValueProps.ts";
 
 let initialState: TaskProps[] = [
    {id: 1, title: 'HTML&CSS', isDone: true},
@@ -15,7 +15,7 @@ let initialState: TaskProps[] = [
 
 function App() {
    const [tasks, setTasks] = useState<TaskProps[]>(initialState);
-   const [filteredTasks, setFilteredTasks] = useState<FilterValuesProps>("All");
+   const [filteredTasks, setFilteredTasks] = useState<FilterValueProps>("All");
 
    let tasksForTodolist = tasks
    filteredTasks === "Active" ? tasksForTodolist = tasks.filter(task => !task.isDone) : tasksForTodolist
@@ -25,7 +25,7 @@ function App() {
       const filteredTasks = tasks.filter(task => task.id !== taskID)
       setTasks(filteredTasks);
    }
-   const changedFilter = (filter: FilterValuesProps) => setFilteredTasks(filter)
+   const changedFilter = (filter: FilterValueProps) => setFilteredTasks(filter)
 
    return (
       <div className="App">
