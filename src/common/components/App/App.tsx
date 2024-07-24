@@ -1,10 +1,10 @@
 import 'common/components/App/App.css'
 import {Todolist} from "common/components/Todolist/Todolist.tsx";
-import {TasksProps} from "common/types/tasksProps/TasksProps.ts";
+import {TaskProps} from "common/types/tasksProps/TaskProps.ts";
 import {useState} from "react";
 import {FilterValuesProps} from "common/types/todolistProps/FilterValuesProps.ts";
 
-let initialState: TasksProps[] = [
+let initialState: TaskProps[] = [
    {id: 1, title: 'HTML&CSS', isDone: true},
    {id: 2, title: 'JS', isDone: true},
    {id: 3, title: 'ReactJS', isDone: false},
@@ -14,7 +14,7 @@ let initialState: TasksProps[] = [
 ]
 
 function App() {
-   const [tasks, setTasks] = useState<TasksProps[]>(initialState);
+   const [tasks, setTasks] = useState<TaskProps[]>(initialState);
    const [filteredTasks, setFilteredTasks] = useState<FilterValuesProps>("All");
 
    let tasksForTodolist = tasks
