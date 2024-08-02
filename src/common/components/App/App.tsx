@@ -3,14 +3,15 @@ import {Todolist} from "common/components/Todolist/Todolist.tsx";
 import {TaskProps} from "common/types/tasksProps/TaskProps.ts";
 import {useState} from "react";
 import {FilterValueProps} from "common/types/todolistProps/FilterValueProps.ts";
+import {v1} from "uuid";
 
 let initialState: TaskProps[] = [
-   {id: 1, title: 'HTML&CSS', isDone: true},
-   {id: 2, title: 'JS', isDone: true},
-   {id: 3, title: 'ReactJS', isDone: false},
-   {id: 4, title: 'Redux', isDone: false},
-   {id: 5, title: 'TypeScript', isDone: false},
-   {id: 6, title: 'RTK Query', isDone: false},
+   {id: v1(), title: 'HTML&CSS', isDone: true},
+   {id: v1(), title: 'JS', isDone: true},
+   {id: v1(), title: 'ReactJS', isDone: false},
+   {id: v1(), title: 'Redux', isDone: false},
+   {id: v1(), title: 'TypeScript', isDone: false},
+   {id: v1(), title: 'RTK Query', isDone: false},
 ]
 
 function App() {
@@ -21,11 +22,15 @@ function App() {
    filteredTasks === "Active" ? tasksForTodolist = tasks.filter(task => !task.isDone) : tasksForTodolist
    filteredTasks === "Completed" ? tasksForTodolist = tasks.filter(task => task.isDone) : tasksForTodolist
 
-   const removeTask = (taskID: number) => {
+   const removeTask = (taskID: string) => {
       const filteredTasks = tasks.filter(task => task.id !== taskID)
       setTasks(filteredTasks);
    }
    const changedFilter = (filter: FilterValueProps) => setFilteredTasks(filter)
+   const addTask = (title: string)=> {
+      const newTask = {id: v1(), title: title, isDone: false}
+      setTasks([newTask, ...tasks])
+   }
 
    return (
       <div className="App">
@@ -34,6 +39,7 @@ function App() {
              tasks={tasksForTodolist}
              removeTask={removeTask}
              changeFilter={changedFilter}
+             addTask={addTask}
          />
       </div>
    )
