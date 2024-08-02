@@ -4,6 +4,7 @@ import {ChangeEvent, FC, useState, KeyboardEvent} from "react";
 
 export const Todolist: FC<TodolistProps> = (props) => {
     const [taskTitle, setTaskTitle] = useState("")
+
     const changeTaskTitleHandler = (event: ChangeEvent<HTMLInputElement>) => setTaskTitle(event.currentTarget.value)
     const addTaskHandler = () => {
         props.addTask(taskTitle);

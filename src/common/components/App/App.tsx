@@ -19,8 +19,8 @@ function App() {
    const [filteredTasks, setFilteredTasks] = useState<FilterValueProps>("All");
 
    let tasksForTodolist = tasks
-   filteredTasks === "Active" ? tasksForTodolist = tasks.filter(task => !task.isDone) : tasksForTodolist
-   filteredTasks === "Completed" ? tasksForTodolist = tasks.filter(task => task.isDone) : tasksForTodolist
+   filteredTasks === "Active" && (tasksForTodolist = tasks.filter(task => !task.isDone))
+   filteredTasks === "Completed" && (tasksForTodolist = tasks.filter(task => task.isDone))
 
    const removeTask = (taskID: string) => {
       const filteredTasks = tasks.filter(task => task.id !== taskID)
