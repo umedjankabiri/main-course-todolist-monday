@@ -9,11 +9,7 @@ export const Todolist: FC<TodolistProps> = (props) => {
         props.addTask(taskTitle);
         setTaskTitle("")
     }
-    const addTaskOnKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.ctrlKey && event.key === "Enter") {
-            addTaskHandler();
-        }
-    }
+    const addTaskOnKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => (event.ctrlKey && event.key === "Enter") && addTaskHandler()
     const setAllTasksHandler = () => props.changeFilter("All")
     const setActiveTasksHandler = () => props.changeFilter("Active")
     const setCompletedTasksHandler = () => props.changeFilter("Completed")
